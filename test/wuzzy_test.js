@@ -90,6 +90,20 @@ describe("wuzzy", function() {
 
     wuzzy("mtictnyz", phrases).should.eql([]);
   });
+
+  describe("options", function() {
+    describe("html", function() {
+      it("wraps exact matches", function() {
+        wuzzy("multi", phrases, {html: true}).should.eql([
+          "Optional <b>multi</b>media contingency",
+          "<b>Multi</b>-layered composite website",
+          "<b>Multi</b>-tiered client-server complexity",
+          "<b>Multi</b>-channelled methodical projection"
+        ]);
+      });
+    });
+  });
+
 });
 
 
