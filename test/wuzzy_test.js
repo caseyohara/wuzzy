@@ -98,6 +98,22 @@ describe("wuzzy", function() {
 
 });
 
+describe("cache", function() {
+  it("caches queries", function() {
+    var wuzzy = new Wuzzy(phrases, {html: true});
+    wuzzy.search("asdf");
+    wuzzy.cache.should.have.keys("asdf");
+  });
+
+  it("collapses similar queries", function() {
+    var wuzzy = new Wuzzy(phrases, {html: true});
+    wuzzy.search("qwerty");
+    wuzzy.search("qw  er ty");
+    wuzzy.cache.should.have.keys("qwerty");
+    wuzzy.cache.should.not.have.keys("qw  er ty");
+  });
+});
+
 describe("options", function() {
   describe("html", function() {
     var wuzzy = new Wuzzy(phrases, {html: true});
