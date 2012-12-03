@@ -1,5 +1,5 @@
 require('should');
-var wuzzy = require('../lib/wuzzy');
+var wuzzy = require('../lib/wuzzy').Wuzzy;
 
 describe("wuzzy", function() {
 
@@ -32,6 +32,10 @@ describe("wuzzy", function() {
 
   it("isn't case sensitive", function() {
     wuzzy('MATRIX', phrases).should.eql(["Reactive directional matrix"]);
+  });
+
+  it("isn't whitespace sensitive", function() {
+    wuzzy('bench mark', phrases).should.eql(["Customer-focused mobile benchmark"])
   });
 
   it("sorts the results by length", function() {
@@ -94,16 +98,25 @@ describe("wuzzy", function() {
   describe("options", function() {
     describe("html", function() {
       it("wraps exact matches", function() {
-        wuzzy("multi", phrases, {html: true}).should.eql([
-          "Optional <b>multi</b>media contingency",
-          "<b>Multi</b>-layered composite website",
-          "<b>Multi</b>-tiered client-server complexity",
-          "<b>Multi</b>-channelled methodical projection"
+          var results = wuzzy("multi", phrases, {html: true});
+
+          [ "Optional <b>multi</b>media contingency",
+            "<b>Multi</b>-layered composite website",
+            "<b>Multi</b>-tiered client-server complexity",
+            "<b>Multi</b>-channelled methodical projection"
+          ].forEach(function(result, index) {
+            results[index].should.eql(result);
+          });
+      });
+
+      it("wraps fuzzy matches", function() {
+        wuzzy("mtictny", phrases, {html: true}).should.eql([
+          "Optional <b>m</b>ul<b>ti</b>media <b>c</b>on<b>t</b>i<b>n</b>genc<b>y</b>"
         ]);
       });
     });
   });
-
 });
+
 
 
