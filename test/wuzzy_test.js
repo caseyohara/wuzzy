@@ -109,6 +109,7 @@ describe("cache", function() {
     var wuzzy = new Wuzzy(phrases, {html: true});
     wuzzy.search("qwerty");
     wuzzy.search("qw  er ty");
+    wuzzy.search("qw ErTy");
     wuzzy.cache.should.have.keys("qwerty");
     wuzzy.cache.should.not.have.keys("qw  er ty");
   });
