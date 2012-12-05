@@ -21,8 +21,11 @@ var phrases = [
   "Versatile bifurcated toolset",
   "Function-based solution-oriented toolset",
   "Polarised interactive intranet",
-  "Multi-tiered client-server complexity"
+  "Multi-tiered client-server complexity",
+  "AReallyLongishPhraseWithoutAnySpaces"
 ];
+
+
 
 describe("wuzzy", function() {
   var wuzzy = new Wuzzy(phrases);
@@ -37,6 +40,32 @@ describe("wuzzy", function() {
 
   it("isn't whitespace sensitive", function() {
     wuzzy.search('bench mark').should.eql(["Customer-focused mobile benchmark"])
+  });
+
+  it("returns all results for an empty query", function() {
+    wuzzy.search(" ").should.eql([
+      'Virtual holistic intranet',
+      'Profound didactic ability',
+      'Balanced radical help-desk',
+      'Enhanced national interface',
+      'Reactive directional matrix',
+      'Adaptive maximized solution',
+      'Versatile bifurcated toolset',
+      'Devolved tangible monitoring',
+      'Polarised interactive intranet',
+      'Optional multimedia contingency',
+      'Polarised motivating throughput',
+      'Multi-layered composite website',
+      'Customer-focused mobile benchmark',
+      'Customizable eco-centric intranet',
+      'Persistent dynamic data-warehouse',
+      'Secured object-oriented productivity',
+      'AReallyLongishPhraseWithoutAnySpaces',
+      'Multi-tiered client-server complexity',
+      'Multi-channelled methodical projection',
+      'Function-based solution-oriented toolset',
+      'Triple-buffered mission-critical middleware'
+    ]);
   });
 
   it("sorts the results by length", function() {
