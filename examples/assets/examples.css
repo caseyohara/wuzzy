@@ -1,0 +1,52 @@
+body {
+  padding: 30px 60px;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.32;
+  color: #666;
+  background: #ffffff;
+}
+
+a, a:hover, a:active {
+  color: #08aeff;
+  text-decoration: none;
+}
+
+small { font-size: 50% }
+small a { font-weight: normal }
+
+h1 {
+  font-size: 2.3em;
+  letter-spacing: -1px;
+}
+
+label, input {
+  display: inline-block;
+}
+
+label {
+  width: 85px;
+  font-weight: bold;
+}
+
+input {
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 5px solid #ddd;
+}
+
+input:focus {
+  outline: none;
+  border-color: #08aeff;
+}
+
+#languages {
+  padding-left: 90px;
+  list-style-type: none;
+}
+
+#languages b {
+  color: #08aeff;
+}
