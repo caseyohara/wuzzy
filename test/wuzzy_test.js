@@ -44,23 +44,23 @@ describe("wuzzy", function() {
 
   it("returns all results for an empty query", function() {
     wuzzy.search(" ").should.eql([
-      'Virtual holistic intranet',
       'Profound didactic ability',
+      'Virtual holistic intranet',
       'Balanced radical help-desk',
+      'Adaptive maximized solution',
       'Enhanced national interface',
       'Reactive directional matrix',
-      'Adaptive maximized solution',
-      'Versatile bifurcated toolset',
       'Devolved tangible monitoring',
+      'Versatile bifurcated toolset',
       'Polarised interactive intranet',
+      'Multi-layered composite website',
       'Optional multimedia contingency',
       'Polarised motivating throughput',
-      'Multi-layered composite website',
       'Customer-focused mobile benchmark',
       'Customizable eco-centric intranet',
       'Persistent dynamic data-warehouse',
-      'Secured object-oriented productivity',
       'AReallyLongishPhraseWithoutAnySpaces',
+      'Secured object-oriented productivity',
       'Multi-tiered client-server complexity',
       'Multi-channelled methodical projection',
       'Function-based solution-oriented toolset',
@@ -68,10 +68,10 @@ describe("wuzzy", function() {
     ]);
   });
 
-  it("sorts the results by length", function() {
+  it("sorts the results alphabetically and by length", function() {
     wuzzy.search("multi").should.eql([
-      "Optional multimedia contingency",
       "Multi-layered composite website",
+      "Optional multimedia contingency",
       "Multi-tiered client-server complexity",
       "Multi-channelled methodical projection"
     ]);
@@ -86,9 +86,9 @@ describe("wuzzy", function() {
       "Adaptive maximized solution",
       "Reactive directional matrix",
       "Devolved tangible monitoring",
+      "Multi-layered composite website",
       "Optional multimedia contingency",
       "Polarised motivating throughput",
-      "Multi-layered composite website",
       "Customizable eco-centric intranet",
       "Multi-tiered client-server complexity",
       "Multi-channelled methodical projection",
@@ -96,8 +96,8 @@ describe("wuzzy", function() {
     ]);
 
     wuzzy.search("mtic").should.eql([
-      "Optional multimedia contingency",
       "Multi-layered composite website",
+      "Optional multimedia contingency",
       "Customizable eco-centric intranet",
       "Multi-tiered client-server complexity",
       "Multi-channelled methodical projection",
@@ -105,8 +105,8 @@ describe("wuzzy", function() {
     ]);
 
     wuzzy.search("mtict").should.eql([
-      "Optional multimedia contingency",
       "Multi-layered composite website",
+      "Optional multimedia contingency",
       "Customizable eco-centric intranet",
       "Multi-tiered client-server complexity",
       "Multi-channelled methodical projection"
@@ -151,8 +151,8 @@ describe("options", function() {
     it("wraps exact matches", function() {
         var results = wuzzy.search("multi");
 
-        [ "Optional <b>multi</b>media contingency",
-          "<b>Multi</b>-layered composite website",
+        [ "<b>Multi</b>-layered composite website",
+          "Optional <b>multi</b>media contingency",
           "<b>Multi</b>-tiered client-server complexity",
           "<b>Multi</b>-channelled methodical projection"
         ].forEach(function(result, index) {
